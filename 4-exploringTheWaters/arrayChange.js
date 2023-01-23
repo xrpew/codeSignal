@@ -1,18 +1,14 @@
-function solution(a){
-    let dura = a.length
-    let moves = 0
-    let dif = 0 
-
-    for(let i=1;i<dura;i++){
-        
-        if(a[i]<=a[i-1]){
-            console.log('menor o igual');
-            a[i]= a[i-1] + 1
-        }
-        
-        console.log(a);
+function solution(a) {
+  let dura = a.length;
+  let dif = 0;
+  let b = [...a];
+  for (let i = 1; i < dura; i++) {
+    if (b[i] <= b[i - 1]) {
+      b[i] = b[i - 1] + 1;
     }
-    return moves
+  }
+  b.map((j, k) => {
+    dif += j - a[k];
+  });
+  return dif;
 }
-
-console.log(solution([1,10,1]));
